@@ -18,7 +18,7 @@ mongoose.connect(url,{
 
 
 const jugadorSchema = mongoose.Schema({
-  noombre: String,
+  nombre: String,
   posicion: String,
   nacionalidad: String,
   equipo: String
@@ -31,7 +31,9 @@ const JugadorModel = mongoose.model('jugadores', jugadorSchema)
 
 const maximun = 1;
 const minimun = 20;
+const minimun2 = 4;
 const random = () => Math.floor(Math.random()*(maximun - minimun)+ minimun);
+const random2 = () => Math.floor(Math.random()*(maximun - minimun2)+ minimun2);
 
   async function getJugadores() {
   try {
@@ -45,9 +47,9 @@ const random = () => Math.floor(Math.random()*(maximun - minimun)+ minimun);
       let jugadorPosicion = await response.data.items[random()].position;
       let jugadorNacionalidad = await response.data.items[random()].nation.name;
       let jugadorEquipo = await response.data.items[random()].club.name;
-      jugadoresArray.push([jugadorNombre, jugadorPosicion, jugadorNacionalidad, jugadorEquipo]);
+      jugadoresArray.push({nombre: jugadorNombre, posicion: jugadorPosicion, nacionalidad: jugadorNacionalidad, equipo: jugadorEquipo});
     }
-    console.log(jugadoresArray);
+    return jugadoresArray[random2()];
   } catch (error) {
     console.error(error);
   }
@@ -63,4 +65,15 @@ const mostrar = async () =>  {
   getJugadores()
 }
 
+//creando jugadores 
+
+const crear = async () => {
+
+  const datosJugador = await getJugadores()
+  const jugador = new JugadorModel(datosJugador)
+  const resultado = await jugador.save()
+  console.log(resultado)
+}
+
 mostrar();
+//crear();
