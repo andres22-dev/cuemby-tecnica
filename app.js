@@ -23,14 +23,18 @@ const jugadorSchema = mongoose.Schema({
   equipo: String
 })
 
-const JugadorModel = mongoose.model('jugadores', jugadoresSchema)
+const JugadorModel = mongoose.model('jugadores', jugadorSchema)
 
-// 
+
+// trayendo datos por peticiones de la API 
+
+
+// trayendo datos quemados de la bd
 
 const mostrar = async () =>  {
 
-  const jugadores = await PersonaModel.find()
-  console.log(personas)
+  const jugadores = await JugadorModel.find()
+  console.log(jugadores)
 }
 
 mostrar();
