@@ -22,7 +22,7 @@ const jugadorSchema = mongoose.Schema({
   posicion: String,
   nacionalidad: String,
   equipo: String
-})
+}, {versionKey: false})
 
 const JugadorModel = mongoose.model('jugadores', jugadorSchema)
 
@@ -55,14 +55,16 @@ const random2 = () => Math.floor(Math.random()*(maximun - minimun2)+ minimun2);
   }
 }
 
+// Obteniendo id del jugador 
+
 
 // trayendo datos quemados de la bd
 
 const mostrar = async () =>  {
 
-  const jugadores = await JugadorModel.find()
-  console.log(jugadores)
-  getJugadores()
+  const jugadores = await JugadorModel.find();
+  console.log(jugadores);
+  console.log('Consulta de jugadores fue exitosa !!');
 }
 
 //creando jugadores 
@@ -73,7 +75,19 @@ const crear = async () => {
   const jugador = new JugadorModel(datosJugador)
   const resultado = await jugador.save()
   console.log(resultado)
+  console.log('Has creado un nuevo jugador :D!')
 }
 
-mostrar();
+//Actualizar jugadores
+
+const actualizar = async () => {
+  const persona = await JugadorModel.updateOne({_id:id},
+  {
+    $set: await getJugadores()
+  })
+
+  console.log('Has actualizado a el jugador :D!, el id es');
+}
+//mostrar();
 //crear();
+actualizar();
