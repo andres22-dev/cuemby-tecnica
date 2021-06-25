@@ -57,6 +57,11 @@ const random2 = () => Math.floor(Math.random()*(maximun - minimun2)+ minimun2);
 
 // Obteniendo id del jugador 
 
+const idJugador = async () =>  {
+
+  const jugadores = await JugadorModel.find();
+  return jugadores[random2()]._id;
+}
 
 // trayendo datos quemados de la bd
 
@@ -81,13 +86,23 @@ const crear = async () => {
 //Actualizar jugadores
 
 const actualizar = async () => {
-  const persona = await JugadorModel.updateOne({_id:id},
+  const idJu = await idJugador();
+  const persona = await JugadorModel.updateOne({_id:idJu},
   {
     $set: await getJugadores()
   })
 
-  console.log('Has actualizado a el jugador :D!, el id es');
+  console.log(`Has actualizado a el jugador :D!, el id del jugador actualizado es ${idJu}`);
+}
+
+//Eliminar jugador
+
+const eliminar = async (id) => {
+  const idJug = await idJugador();
+  const jugador = await JugadorModel.deleteOne({_id:idJug});
+  console.log(`Èl jugador eliminado fue ${idJug}`);
 }
 //mostrar();
 //crear();
-actualizar();
+//actualizar();
+eliminar();
