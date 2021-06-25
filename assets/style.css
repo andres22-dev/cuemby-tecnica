@@ -1,6 +1,6 @@
 *{
   --color-primario: #fff;
-  --color-secundario: #fc758c;
+  --color-secundario: #3c375a;
   --color-complementario: #64bab8;
   --color-fuente-primario: #fff;
   --color-fuente-secundario: #a8a8a8;
@@ -71,25 +71,11 @@
 }
 .header__figure img{
 
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   
 
 }
-
-.header__namelogo h1{
-
-  font-size:20px;
-  display: inline-block;
-  padding-top: 5px;
-
-}
-.header__namelogo p{
-
-  font-size: 13px;
-
-}
-
 
 .header__menu ul, .section__menu ul{
 
@@ -172,50 +158,6 @@ list-style: none;
     right: 0px;
 
 }
-
-.landing{
-
-  background-color: var(--color-secundario);
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-}
-
-.landing__h1{
-
-  font-size: var(--tamano-fuente-grande);
-  color: var(--color-primario);
-  font-weight: var(--font-weight-semi-bold);
-
-}
-
-.landing__p{
-
-  font-size: var(--tamano-fuente-medio);
-  color: var(--color-primario);
-  font-weight: var(--font-weight);
-  text-align: center;
-
-
-}
-
-.landing__a{
-
-  
-  
-  background-color:  var(--color-primario);
-  color: var(--color-secundario);
-  text-decoration: none;
-  text-align: center;
-  font-size: 12px;
-  font-weight: var(--font-weight-semi-bold);
-  padding: 10px 30px;
-}
-
-.landing__h1,.landing__p,.landing__a{
-
-  margin-bottom: 25px;
-}
-
 .section{
   
   background-color: var(--color-primario);
@@ -413,27 +355,10 @@ list-style: none;
 
 @media screen and (max-width:952){
 
-  .header__figure{
+  .header__figure img{
 
-    width: 20px;
-    height: 20px;
-    
-  
-  }
-  
-  .header__namelogo h1{
-  
-    font-size:11px;
-    padding-top: 2.5px;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-fuente-secundario);
-  
-  }
-  .header__namelogo p{
-  
-    font-size: 6px;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-fuente-secundario);
+    width: 80px;
+    height: 80px;
   
   }
   
@@ -536,27 +461,6 @@ list-style: none;
     color: var(--color-complementario);
    }
 
-   .landing__h1{
-
-    font-size: 28px;
-    text-align: center;
-    
-   }
-
-   .landing__p {
-
-    font-size: 12px;
-    display: inline-block;
-    
-    
-   }
-
-   .landing__a{
-
-    width: 150px;
-    font-size: 12px;
-    padding: 10px 10px;
-  }
 
   .layout .section{
 
